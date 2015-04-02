@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,6 +10,7 @@ namespace AngularForMVC.Models
     {
         public int Id { get; set; }
         public string FullName { get; set; }
+        [Required]
         public string Notes { get; set; }
         public string Department { get; set; }
         public bool PerkCar { get; set; }

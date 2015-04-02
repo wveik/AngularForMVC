@@ -34,7 +34,21 @@
 
             if ($scope.editableEmployee.id == 0) {
                 //Вставка нового сотрудника
-                DataService.insertEmployee($scope.editableEmployee);
+                DataService.insertEmployee($scope.editableEmployee).then(
+                    function (results) {
+                        //on success - успешный вызов
+                        $scope.employee = angular.copy($scope.editableEmployee);
+                        if ($modal.IsModal) {
+                            $modal.window.dismiss();
+                        } else {
+                            $window.history.back();
+                        }
+                    },
+                    function (results) {
+                        //on error - ОШИБКА вызова
+                        console.log(results);
+                    }
+                );
             } else {
                 //Редактирование сотрудника
                 DataService.updateEmployee($scope.editableEmployee);
