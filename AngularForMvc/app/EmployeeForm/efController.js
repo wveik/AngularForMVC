@@ -51,13 +51,22 @@
                 );
             } else {
                 //Редактирование сотрудника
-                DataService.updateEmployee($scope.editableEmployee);
+                DataService.updateEmployee($scope.editableEmployee).then(
+                    function (results) {
+                        //on success - успешный вызов
+                        $scope.employee = angular.copy($scope.editableEmployee);
+                        if ($modal.IsModal) {
+                            $modal.window.dismiss();
+                        } else {
+                            $window.history.back();
+                        }
+                    },
+                    function (results) {
+                        //on error - ОШИБКА вызова
+                        console.log(results);
+                    }
+                );
             }
-
-            $scope.employee = angular.copy($scope.editableEmployee);
-            //$window.history.back();
-
-            $modal.window.close();
         }
 
         $scope.cancelForm = function () {

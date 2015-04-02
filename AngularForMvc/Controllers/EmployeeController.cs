@@ -28,10 +28,30 @@ namespace AngularForMVC.Controllers {
         [HttpPost]
         public ActionResult Create(EmployeeVM item) {
             if (ModelState.IsValid)
-                return new HttpStatusCodeResult(201, "Пользователь добавлен");
+                return Json(1255);
 
             List<string> errors = new List<string>();
             errors.Add("Ошибка добавления нового сотрудника");
+            if (!ModelState.IsValidField("Notes"))
+                errors.Add("Внесите чего-нибудь про него...");
+
+            Response.StatusCode = 500;
+
+            Response.TrySkipIisCustomErrors = true;
+
+            return new ContentResult {
+                Content = "ERROR: " + string.Join("  ", errors),
+                ContentEncoding = System.Text.Encoding.UTF8
+            };
+        }
+
+        [HttpPost]
+        public ActionResult Update(EmployeeVM item) {
+            if (ModelState.IsValid)
+                return Json(1255);
+
+            List<string> errors = new List<string>();
+            errors.Add("Ошибка редактирования сотрудника");
             if (!ModelState.IsValidField("Notes"))
                 errors.Add("Внесите чего-нибудь про него...");
 

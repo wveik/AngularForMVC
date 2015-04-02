@@ -29,7 +29,7 @@ angularFormsApp.factory('DataService',
         };
 
         var updateEmployee = function (employee) {
-            return true;
+            return $http.post("Employee/Update", employee);
         };
 
         return {
