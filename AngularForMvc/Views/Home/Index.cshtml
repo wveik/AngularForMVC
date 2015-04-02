@@ -5,17 +5,10 @@
 <!DOCTYPE html>
 <html ng-app="angularFormsApp">
 <head>
-    <title>@ViewBag.Title</title>
-    <script src="~/Scripts/angular.min.js"></script>
-    <script src="~/Scripts/angular-route.min.js"></script>
-    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
-    <script src="~/app/AngularFormsApp.js"></script>
-    <script src="~/app/DataService.js"></script>
+    <title>@ViewBag.Title</title>    
 
-    <script src="~/app/EmployeeForm/efController.js"></script>
-    <script src="~/app/EmployeeForm/efDirective.js"></script>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/mini-spa/script")
+    @Styles.Render("~/bundles/mini-spa/style")
 </head>
 <body class="container">
     <br />

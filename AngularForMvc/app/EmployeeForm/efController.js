@@ -47,12 +47,11 @@
         }
 
         $scope.cancelForm = function () {
-            try {
+            if($modal.IsModal) {
                 $modal.window.dismiss();
-            } catch (e) {
+            } else {
                 $window.history.back();
             }
-           
         }
 
         $scope.checkFullName = function () {

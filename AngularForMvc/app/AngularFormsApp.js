@@ -25,10 +25,11 @@ angularFormsApp.config(
 angularFormsApp.controller("HomeController",
     ["$scope", "$location", "$modal", "DataService",
     function ($scope, $location, $modal, DataService) {
-
+        $modal.IsModal = false;
         $scope.showCreateEmployeeForm = function () {
             //$location.path('/newEmployeeForm');
-            
+
+            $modal.IsModal = true;
             $modal.window = $modal.open({
                 templateUrl: "app/EmployeeForm/efTemplate.html",
                 controller: "efController"
@@ -36,6 +37,7 @@ angularFormsApp.controller("HomeController",
         };
 
         $scope.showUpdateEmployeeForm = function (id) {
+            $modal.IsModal = false;
             $location.path('/updateEmployeeForm/' + id)
         };
 
