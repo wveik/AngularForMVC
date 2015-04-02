@@ -26,6 +26,12 @@ angularFormsApp.controller("HomeController",
     ["$scope", "$location", "$modal", "DataService",
     function ($scope, $location, $modal, DataService) {
         $modal.IsModal = false;
+
+        DataService.getEmployees().then(function (results) {
+            var data = results.data;
+            console.log(data);
+        });
+
         $scope.showCreateEmployeeForm = function () {
             //$location.path('/newEmployeeForm');
 
