@@ -47,9 +47,12 @@
         }
 
         $scope.cancelForm = function () {
-            //$window.history.back();
-            
-           $modal.window.dismiss();
+            try {
+                $modal.window.dismiss();
+            } catch (e) {
+                $window.history.back();
+            }
+           
         }
 
         $scope.checkFullName = function () {

@@ -25,18 +25,18 @@ namespace AngularForMVC {
                       "~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/bundles/mini-spa/style").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/app.css"));
+                        "~/Content/bootstrap-theme.min.css",      
+                        "~/Content/bootstrap.min.css"
+                      ));
 
             bundles.Add(new ScriptBundle("~/bundles/mini-spa/script").Include(
-                      "~/Scripts/angular.js",
-                      "~/Scripts/angular-route.js",
-                      "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
-                      "~/app/AngularFormsApp.js",
-                      "~/app/DataService.js",
-                      "~/app/ValidationDirective.js",
-                      "~/app/EmployeeForm/efController.js",
-                      "~/app/EmployeeForm/efDirective.js"));
+                          ,"~/Scripts/angular.min.js"
+                        ,"~/Scripts/angular-route.min.js"
+                        ,"~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"
+                        ,"~/app/AngularFormsApp.js"
+                        ,"~/app/DataService.js"
+                        ,"~/app/EmployeeForm/efController.js"
+                        ,"~/app/EmployeeForm/efDirective.js"));
 
 
 
